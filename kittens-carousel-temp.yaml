@@ -19,7 +19,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref LatestAmiId
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       KeyName: !Ref KeyPairParameter
       SecurityGroups: 
         - !Ref WebServerSG
@@ -30,7 +30,7 @@ Resources:
         #! /bin/bash
         dnf update -y
         dnf install httpd -y
-        FOLDER="https://raw.githubusercontent.com/guile-clarusway/kittenscarousel/refs/heads/main/static-web"
+        FOLDER="https://raw.githubusercontent.com/irfcan/kittens-carousel-project/refs/heads/master/static-web"
         cd /var/www/html
         wget ${FOLDER}/index.html
         wget ${FOLDER}/cat0.jpg
